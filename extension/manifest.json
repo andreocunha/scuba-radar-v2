@@ -1,0 +1,29 @@
+{
+    "name": "Scuba Radar V2",
+    "description": "Atualização do Scuba Radar V1 para o Scuba Radar V2.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://cursos.alura.com.br/forum/*"
+            ],
+            "css": [
+                "styles.css",
+                "/chat/chat.css"
+            ],
+            "js": [
+                "socket.io.js",
+                "/chat/chat.js",
+                "content.js"
+            ]
+        }
+    ],
+    "permissions": ["scripting"]
+}

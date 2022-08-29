@@ -1,0 +1,25 @@
+.scuba-radar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 35px;
+    background-color: rgb(5, 54, 167);
+
+    /* border radius 10px on top */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    width: 100%;
+    max-width: 400px;
+    margin: 0px 10px;
+    
+    color: #fff;
+    font-size: 16px;
+}
+
+.scuba-radar:hover {
+    cursor: pointer;
+}
