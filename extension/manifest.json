@@ -3,9 +3,6 @@
     "description": "Atualização do Scuba Radar V1 para o Scuba Radar V2.",
     "version": "1.0",
     "manifest_version": 3,
-    "background": {
-        "service_worker": "background.js"
-    },
     "action": {
         "default_popup": "popup.html"
     },
@@ -19,11 +16,12 @@
                 "/chat/chat.css"
             ],
             "js": [
-                "socket.io.js",
+                "/socketio/socket.io.js",
                 "/chat/chat.js",
+                "/socketio/socketRequest.js",
                 "content.js"
             ]
         }
     ],
-    "permissions": ["scripting"]
+    "permissions": ["scripting", "storage"]
 }

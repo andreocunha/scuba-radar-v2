@@ -18,6 +18,26 @@ function loadChatScript() {
   });
 }
 
+function createChat(element) {
+  const chat = `<header class="msger-header">
+      <div class="msger-header-title">
+          <i class="fas fa-comment-alt"></i> Scuba Radar Chat
+      </div>
+      <div class="msger-header-options">
+          <span><i class="fas fa-cog"></i></span>
+      </div>
+  </header>
+
+  <main class="msger-chat"></main>
+  <form class="msger-inputarea">
+      <input type="text" class="msger-input" placeholder="Digite sua mensagem...">
+      <button type="submit" class="msger-send-btn">Enviar</button>
+  </form>`;
+
+  element.innerHTML += chat;
+  loadChatScript();
+}
+
 function appendMessage(name, img, side, text) {
   //   Simple solution for small apps
   const msgHTML = `

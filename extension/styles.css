@@ -1,11 +1,11 @@
 .scuba-radar {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
     bottom: 0;
     right: 0;
-    height: 35px;
+    height: 40px;
     background-color: rgb(5, 54, 167);
 
     /* border radius 10px on top */
@@ -13,13 +13,27 @@
     border-top-right-radius: 10px;
 
     width: 100%;
-    max-width: 400px;
-    margin: 0px 10px;
+    max-width: 250px;
+    margin: 0px 45px;
     
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
 }
 
-.scuba-radar:hover {
+.chat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin: 5px;
+    background-color: rgb(5, 54, 167);
+}
+
+.chat-icon:hover {
     cursor: pointer;
 }
