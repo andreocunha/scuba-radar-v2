@@ -24,16 +24,33 @@ io.on('connection', (socket) => {
           photo: clientSocket.photo,
         });
       }
+      console.log('USERS:', users);
       io.to(url).emit('usersInUrl', users);
+      return users;
     }
   }
 
-  socket.on('join', (url) => {
-    socket.username = socket.id + " - ANDRE";
-    socket.url = url;
-    socket.photo = `https://secure.gravatar.com/avatar/${socket.id}?s=90&d=identicon`;
-    socket.join(url);
-    usersInUrl(url);
+  function verifyUserInUrl(url, userName){
+    const clients = usersInUrl(url);
+    if(clients){
+      for(const client of clients){
+        if(client.username == userName){
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  socket.on('join', (url, userName) => {
+    console.log('USERNAME:', userName);
+    if(!verifyUserInUrl(url, userName)){
+      socket.username = userName;
+      socket.url = url;
+      socket.photo = `https://secure.gravatar.com/avatar/${socket.id}?s=90&d=identicon`;
+      socket.join(url);
+      usersInUrl(url);
+    }
   })
 
   socket.on('newMessage', (message) => {
