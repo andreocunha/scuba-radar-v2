@@ -15,7 +15,18 @@ function loadSocketIO(){
       usersInPage = users;
       if(users.length > 1){
           divRef.style.display = 'flex';
-          divRef.innerHTML =`mais ${users.length - 1} ${users.length > 2 ? ' pessoas': ' pessoa'} aqui`;
+          divRef.innerHTML =`
+            <p>mais ${users.length - 1} ${users.length > 2 ? ' pessoas': ' pessoa'} aqui</p>
+            <div class="users">
+                <h1>Usuários</h1>
+                ${users.map(user => `
+                    <div class="user">
+                        <img src="${user.photo}" alt="${user.username}">
+                        <p>${user.username}</p>
+                    </div>
+                `).join('')}
+            </div>
+          `;
       }
       else {
           divRef.style.display = 'none';

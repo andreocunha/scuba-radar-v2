@@ -7,13 +7,14 @@ function saveName() {
         console.log('result:', result);
         if(result.name){
             userName = result.name;
-            return;
         }
         else {
             let name = prompt("Por favor, digite seu nome:");
             chrome.storage.sync.set({ name }, () => {
                 console.log(`nome salvo: ${name}`);
             });
+            // recarrega a página para atualizar o nome
+            location.reload();
         }
     })
 }
@@ -28,7 +29,7 @@ chatRef.setAttribute('class', 'msger');
 
 let chatIconRef = document.createElement('div');
 chatIconRef.setAttribute('class', 'chat-icon');
-chatIconRef.innerText = '💬';
+chatIconRef.innerHTML = '<img src="https://raw.githubusercontent.com/andreocunha/scuba-forum-extension/main/scuba-radar/icon.png" alt="scuba icon" height="90%" width="90%">';
 
 // usuarios na mesma url
 let usersInPage = [];
@@ -56,5 +57,17 @@ chatIconRef.addEventListener('click', function () {
     // Esconde o chat
     else {
         chatRef.style.display = "none";
+    }
+})
+
+divRef.addEventListener('click', function () {
+    const divScuba = document.getElementsByClassName('users')[0];
+    // Mostra o chat
+    if (divScuba.style.display === "none" || divScuba.style.display === "") {
+        divScuba.style.display = "flex";
+    }
+    // Esconde o chat
+    else {
+        divScuba.style.display = "none";
     }
 })

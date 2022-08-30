@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
     if(!verifyUserInUrl(url, userName)){
       socket.username = userName;
       socket.url = url;
-      socket.photo = `https://secure.gravatar.com/avatar/${socket.id}?s=90&d=identicon`;
+      socket.photo = `https://www.gravatar.com/avatar/${Math.floor(Math.random()*10000)}?s=90&d=identicon`;
       socket.join(url);
       usersInUrl(url);
     }

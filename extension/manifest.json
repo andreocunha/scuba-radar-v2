@@ -12,14 +12,14 @@
                 "https://cursos.alura.com.br/forum/*"
             ],
             "css": [
-                "styles.css",
-                "/chat/chat.css"
+                "/styles/global.css",
+                "/styles/chat.css"
             ],
             "js": [
-                "/socketio/socket.io.js",
-                "/chat/chat.js",
-                "/socketio/socketRequest.js",
-                "content.js"
+                "/js/socket.io.js",
+                "/js/chat.js",
+                "/js/socketRequest.js",
+                "/js/content.js"
             ]
         }
     ],

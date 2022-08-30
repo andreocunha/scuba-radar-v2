@@ -20,6 +20,10 @@
     font-size: 18px;
 }
 
+.scuba-radar:hover {
+    cursor: pointer;
+}
+
 .chat-icon {
     display: flex;
     align-items: center;
@@ -36,4 +40,41 @@
 
 .chat-icon:hover {
     cursor: pointer;
+}
+
+.chat-icon img {
+    border-radius: 50%;
+}
+
+.users {
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0px;
+    right: 380px;
+    height: 500px;
+    width: 250px;
+    gap: 10px;
+    background-color: rgb(5, 54, 167);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 15px;
+    height: 40px;
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(14, 69, 199);
+}
+
+.user img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
 }
