@@ -1,6 +1,8 @@
 let msgerForm = null;
 let msgerInput = null;
 let msgerChat = null;
+let tabName = document?.title;
+let numMessages = 0;
 
 function loadChatScript() {
   msgerForm = get(".msger-inputarea");
@@ -40,6 +42,9 @@ function createChat(element) {
 
 function appendMessage(name, img, side, text) {
   //   Simple solution for small apps
+  numMessages++;
+  divAreaIsClosed(chatRef) ? showMessageNotification() : numMessages = 0;
+
   const msgHTML = `
       <div class="msg ${side}-msg">
         <div class="msg-img" style="background-image: url(${img})"></div>
@@ -69,4 +74,10 @@ function formatDate(date) {
   const m = "0" + date.getMinutes();
 
   return `${h.slice(-2)}:${m.slice(-2)}`;
+}
+
+function showMessageNotification() {
+  document.title = `(${numMessages}) ` + tabName;
+  chatIconRef.style.backgroundColor = "red";
+  chatIconRef.innerHTML = '<p style="color: white;">' + numMessages + '</p>';
 }

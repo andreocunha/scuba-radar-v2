@@ -12,8 +12,7 @@ function loadSocketIO(){
   // Recebe os usuários na mesma url
   socket.on('usersInUrl', (users) => {
       console.log(users);
-      usersInPage = users;
-      if(users.length > 1){
+      if(users?.length > 1){
           divRef.style.display = 'flex';
           divRef.innerHTML =`
             <p>mais ${users.length - 1} ${users.length > 2 ? ' pessoas': ' pessoa'} aqui</p>

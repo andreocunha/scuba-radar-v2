@@ -29,10 +29,9 @@ chatRef.setAttribute('class', 'msger');
 
 let chatIconRef = document.createElement('div');
 chatIconRef.setAttribute('class', 'chat-icon');
-chatIconRef.innerHTML = '<img src="https://raw.githubusercontent.com/andreocunha/scuba-forum-extension/main/scuba-radar/icon.png" alt="scuba icon" height="90%" width="90%">';
+let scubaIcon = '<img src="https://raw.githubusercontent.com/andreocunha/scuba-forum-extension/main/scuba-radar/icon.png" alt="scuba icon" height="90%" width="90%">'
+chatIconRef.innerHTML = scubaIcon;
 
-// usuarios na mesma url
-let usersInPage = [];
 
 function start(){
     // Pega o body da página assim que carregar
@@ -48,11 +47,22 @@ function start(){
 }
 start();
 
+function divAreaIsClosed(div){
+    if (div?.style.display === "none" || div?.style.display === "") {
+        return true;
+    }
+    return false;
+}
+
 // Fica escutando os clicks no icone do chat
 chatIconRef.addEventListener('click', function () {
     // Mostra o chat
-    if (chatRef.style.display === "none" || chatRef.style.display === "") {
+    if (divAreaIsClosed(chatRef)) {
         chatRef.style.display = "flex";
+        chatIconRef.style.backgroundColor = "#0536a7";
+        chatIconRef.innerHTML = scubaIcon;
+        numMessages = 0;
+        document.title = tabName;
     }
     // Esconde o chat
     else {
@@ -63,7 +73,7 @@ chatIconRef.addEventListener('click', function () {
 divRef.addEventListener('click', function () {
     const divScuba = document.getElementsByClassName('users')[0];
     // Mostra o chat
-    if (divScuba.style.display === "none" || divScuba.style.display === "") {
+    if (divAreaIsClosed(divScuba)) {
         divScuba.style.display = "flex";
     }
     // Esconde o chat
