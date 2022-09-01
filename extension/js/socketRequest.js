@@ -1,5 +1,5 @@
-const socket = io.connect('http://localhost:4000');
-// const socket = io.connect('https://scuba-radar-v2-server.onrender.com');
+// const socket = io.connect('http://localhost:4000');
+const socket = io.connect('https://scuba-radar-v2-server.onrender.com');
 
 
 // carrega a conexão com o socket.io e os eventos

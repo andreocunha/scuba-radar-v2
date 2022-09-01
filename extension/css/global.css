@@ -6,7 +6,7 @@
     bottom: 0;
     right: 0;
     height: 40px;
-    background-color: rgb(5, 54, 167);
+    background-color: #093364;
 
     /* border radius 10px on top */
     border-top-left-radius: 10px;
@@ -64,9 +64,12 @@
     width: 250px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    gap: 10px;
-    background-color: rgb(5, 54, 167);
+    gap: 4px;
+    background-color: #093364;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+    overflow-y: auto;
+    padding: 10px;
 }
 
 .user {
@@ -78,7 +81,7 @@
     height: 40px;
     padding: 10px;
     width: 100%;
-    background-color: rgb(14, 69, 199);
+    border-bottom: 1px solid #fff;
 }
 
 .user img {
