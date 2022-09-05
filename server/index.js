@@ -17,7 +17,6 @@ io.on('connection', (socket) => {
       for (const clientId of clients) {
         //this is the socket of each client in the room.
         const clientSocket = io.sockets.sockets.get(clientId);
-        // console.log('CLIENT SOCKET:', clientSocket.username);
         users.push({
           id: clientSocket.id,
           username: clientSocket.username,
@@ -54,7 +53,6 @@ io.on('connection', (socket) => {
   })
 
   socket.on('newMessage', (message) => {
-    // console.log(message);
     io.to(socket.url).emit('message', {
       id: socket.id,
       nickname: socket.username,
