@@ -80,4 +80,22 @@ function showMessageNotification() {
   document.title = `(${numMessages}) ` + tabName;
   chatIconRef.style.backgroundColor = "red";
   chatIconRef.innerHTML = '<p style="color: white;">' + numMessages + '</p>';
+
+  soundNotification();
+}
+
+function soundNotification() {
+  // Crie um elemento de áudio HTML
+  const audioElement = document.createElement('audio');
+  
+  // Defina o arquivo de som que deseja reproduzir
+  audioElement.src = '../sound/notification-sound.mp3';
+  
+  // Defina o volume (opcional, de 0.0 a 1.0)
+  audioElement.volume = 0.5;
+
+  // Reproduza o som de notificação
+  audioElement.play().catch(error => {
+    console.error('Erro ao reproduzir o som de notificação:', error);
+  });
 }
