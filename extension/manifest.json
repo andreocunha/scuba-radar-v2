@@ -1,7 +1,7 @@
 {
     "name": "Scuba Radar V2",
     "description": "Atualização do Scuba Radar, agora com mais recursos e mais fácil de usar.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "manifest_version": 3,
     "icons": {
         "16": "/images/icon.png",
