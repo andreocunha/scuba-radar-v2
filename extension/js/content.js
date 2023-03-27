@@ -2,16 +2,14 @@
 let userName = 'Anônimo';
 function saveName() {
     // Pega o nome do usuário do local storage
-    console.log('saveName');
     chrome.storage.sync.get(['name'], function(result) {
-        console.log('result:', result);
         if(result.name){
             userName = result.name;
         }
         else {
             let name = prompt("Por favor, digite seu nome:");
             chrome.storage.sync.set({ name }, () => {
-                console.log(`nome salvo: ${name}`);
+                // console.log(`nome salvo: ${name}`);
             });
             // recarrega a página para atualizar o nome
             location.reload();

@@ -38,6 +38,7 @@ function createChat(element) {
 
   element.innerHTML += chat;
   loadChatScript();
+  loadMessages();
 }
 
 function appendMessage(name, img, side, text) {
@@ -46,6 +47,7 @@ function appendMessage(name, img, side, text) {
   divAreaIsClosed(chatRef) ? showMessageNotification() : numMessages = 0;
 
   const msgHTML = `
+    <div id="msg-area" class="msg ${side}-msg">
       <div class="msg ${side}-msg">
         <div class="msg-img" style="background-image: url(${img})"></div>
 
@@ -58,10 +60,34 @@ function appendMessage(name, img, side, text) {
           <div class="msg-text">${text}</div>
         </div>
       </div>
+    </div>
     `;
 
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
+
+  // save messages temporarily in session storage
+  saveMessages();
+}
+
+// save messages temporarily in session storage
+function saveMessages() {
+  let messages = [];
+  let msgElements = document.querySelectorAll("#msg-area");
+  msgElements.forEach((msg) => {
+    messages.push(msg.innerHTML);
+  });
+  sessionStorage.setItem("messages", JSON.stringify(messages));
+}
+
+// load messages from session storage
+function loadMessages() {
+  let messages = JSON.parse(sessionStorage.getItem("messages"));
+  if (messages) {
+    messages.forEach((msg) => {
+      msgerChat.insertAdjacentHTML("beforeend", msg);
+    });
+  }
 }
 
 // Utils
@@ -76,6 +102,7 @@ function formatDate(date) {
   return `${h.slice(-2)}:${m.slice(-2)}`;
 }
 
+
 function showMessageNotification() {
   document.title = `(${numMessages}) ` + tabName;
   chatIconRef.style.backgroundColor = "red";
@@ -85,17 +112,8 @@ function showMessageNotification() {
 }
 
 function soundNotification() {
-  // Crie um elemento de áudio HTML
-  const audioElement = document.createElement('audio');
-  
-  // Defina o arquivo de som que deseja reproduzir
-  audioElement.src = '../sound/notification-sound.mp3';
-  
-  // Defina o volume (opcional, de 0.0 a 1.0)
-  audioElement.volume = 0.5;
-
-  // Reproduza o som de notificação
-  audioElement.play().catch(error => {
-    console.error('Erro ao reproduzir o som de notificação:', error);
-  });
+  let audio = new Audio(
+    'https://github.com/andreocunha/scuba-radar-v2/blob/main/extension/sound/notification-sound.mp3?raw=true'
+  );
+  audio.play();
 }

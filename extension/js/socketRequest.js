@@ -13,7 +13,7 @@ function loadSocketIO(){
 
   // Recebe os usuários na mesma url
   socket.on('usersInUrl', (users) => {
-      console.log(users);
+    //   console.log(users);
       if(users?.length > 1){
           divRef.style.display = 'flex';
           divRef.innerHTML =`
