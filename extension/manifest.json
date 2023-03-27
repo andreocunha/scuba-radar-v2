@@ -15,7 +15,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://cursos.alura.com.br/forum/*"
+                "https://cursos.alura.com.br/forum/*",
+                "https://app.aluracursos.com/forum/*"
             ],
             "css": [
                 "/css/global.css",
